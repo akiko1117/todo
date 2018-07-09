@@ -1,0 +1,52 @@
+
+<h1>タスク選択</h1>
+<h2>今からやるタスクを選択</h2>
+
+<div class="row">
+  <div class="col-sm">
+    <div class="card">
+      <div class="card-body">
+        <ul class="list-group sortable" style="height: 200px">
+          <% @tasks.each do |task| %>
+          	<li class="list-group-item"><%= task.content %> </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm">
+    <div class="card">
+      <div class="card-body">
+        <ul class="list-group sortable" style="height: 200px">
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form action="select" method="post">
+<p><% @tasks.each do |task| %>
+	<%= check_box_tag 'checked[id][]', task.id %>
+	<%= task.content %>
+	
+	<% end %>
+	
+</p>
+<p>
+<input type="submit" value="登録する">
+</p>
+<input type="hidden" name="authenticity_token" value="r6fFH/olgV75lxN8y1k8OzmcbgIZ6yiJO2Hu/Wq9twKaiQE73m7nilqV6faTlC8KJMIyBN1HCFbKuptY+urnAA==" />
+
+</form>
+
+<% content_for :javascript do %>
+<script>
+  $(function() {
+    $(".sortable").sortable({
+      connectWith: ".sortable"
+    });
+  });
+</script>
+<% end %>

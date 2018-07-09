@@ -1,0 +1,8 @@
+<h1>タスクの一覧</h1>
+
+
+<p><%= @user.id %></p>
+<p><% @tasks.each do |task| %>
+	<%= task.content %>
+	<% end %>
+</p>
