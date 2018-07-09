@@ -12,6 +12,8 @@ post 'tasks' , to: 'list#create'
 get 'select', to: 'select#index'
 post 'select', to: 'select#create'
 
+post 'today', to: 'today#backto'
+
 get 'today', to: 'today#index'
 
 end

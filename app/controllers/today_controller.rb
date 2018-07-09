@@ -5,4 +5,10 @@ class TodayController < ApplicationController
 
   	render action: :index
   end
+
+  def backto
+
+  	redirect_back(fallback_location: root_path)
+
+    end
 end
