@@ -2,7 +2,6 @@ class ListController < ApplicationController
   def index
   	@user = current_user
 		@tasks = Task.where(user_id: current_user.id)
-		@xxx = "hello"
 		render action: :index
   end
 
@@ -12,11 +11,8 @@ class ListController < ApplicationController
   end
 
   def create
-  	puts params
   	t = Task.new(user_id: current_user.id, content: params["task"]["content"])
   	t.save
     redirect_to tasks_path
-
-
   end
 end

@@ -8,7 +8,9 @@ class TodayController < ApplicationController
 
   def backto
 
-  	redirect_back(fallback_location: root_path)
+format.html { redirect_back fallback_location: root_path, notice: 'Task was successfully created.' }
 
-    end
+  	#redirect_back(fallback_location: root_path)
+
+   end
 end

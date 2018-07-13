@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'history/index'
   root to: 'top#index'
 
   devise_for :users
@@ -16,5 +17,7 @@ post 'select', to: 'select#create'
 post 'today', to: 'today#backto'
 
 get 'today', to: 'today#index'
+
+get 'history', to: 'history#index'
 
 end
