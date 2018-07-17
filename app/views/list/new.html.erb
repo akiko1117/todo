@@ -1,6 +1,28 @@
- <%= form_for(@task) do |f| %>
-      <%= f.label :content %>
-      <%= f.text_field :content %>
+<%= form_for(@task) do |f| %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
 
-      <%= f.submit "登録する", class: "btn btn-primary" %>
-    <% end %>
+    <%= f.submit "登録する", class: "btn btn-primary" %>
+<% end %>
+
+<% content_for :javascript do %>
+	<script>
+
+
+		$('form').on('submit', function(event){//
+
+	  		// テキストの長さを取得して
+	  		var bodyLength = $('#task_content').val().length;
+	  		
+	  		
+
+	  		if(bodyLength > 20){
+
+	  			alert("タスクは20文字以内で登録してください")
+	    		return false;//処理を完全に止める
+	  		}
+	  		return true;//処理が普通に走る
+		})
+
+	</script>
+<% end %>

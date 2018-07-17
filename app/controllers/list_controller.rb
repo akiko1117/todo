@@ -12,7 +12,9 @@ class ListController < ApplicationController
 
   def create
   	t = Task.new(user_id: current_user.id, content: params["task"]["content"])
-  	t.save
+
+    #t.save#trueかfalseがかえってくる
+    t.save!
     redirect_to tasks_path
   end
 end
